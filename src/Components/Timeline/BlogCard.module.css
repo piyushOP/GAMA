@@ -1,0 +1,29 @@
+.blog_card{
+  width: 100%;
+  display: flex;
+  margin-top: 2rem;
+}
+
+.blog_img{
+  height: 5.6rem;
+  width: 5.6rem;
+  border-radius: .8rem;
+}
+
+.blog_details{
+  margin-left: 1.5rem;
+}
+
+.blog_title{
+  color: #393E41;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.blog_date{
+  color: #AAAAAA;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  font-size: 1.3rem;
+}

@@ -1,0 +1,384 @@
+.timeline{
+  display: grid;
+  grid-template-areas: 
+  "blog feed profile"
+  "blog feed updates"
+  "following feed updates";
+  grid-template-columns:  1fr 2fr 1fr;
+  gap: 2.7rem;
+  grid-template-rows: 45% 17% 34%;
+}
+
+/* BLOG */
+
+.blog{
+  grid-area: blog;
+  background: #FFFFFF;
+  border: 1px solid #E0DFDB;
+  border-radius: 1rem;
+  padding: 2rem;
+  height: fit-content;
+}
+
+.blog_heading{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #393E41;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.blog_cards_div{
+  width: 100%;
+}
+
+.blog_btn{
+  width: max-content;
+  margin-top: 2rem;
+  color: #1E2132;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.2rem;
+  background-color: #F4F3F2;
+  padding: .8rem 1.6rem;
+  border: 1px solid #F4F3F2;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.blog_btn_text{
+  color: #1E2132;
+}
+
+
+/* FEED */
+
+
+.feed{
+  grid-area: feed;
+}
+
+.feed_heading{
+  font-family: 'Segoe UI';
+  font-weight: 700;
+  font-size: 2.8rem;
+  line-height: 2.4rem;
+  color: #393E41;
+}
+
+.feed_post{
+  width: 100%;
+  margin-top: 3.3rem;
+  background: #FFFFFF;
+  border: 1px solid #E0DFDB;
+  border-radius: 1rem;
+}
+
+.feed_input_div{
+  padding: 1.7rem;
+  display: flex;
+}
+
+.feed_input_img{
+  height: 4.5rem;
+  width: 4.5rem;
+  border-radius: 2.2rem;
+}
+
+.feed_input{
+  width: 100%;
+  margin-left: 1.7rem;
+  border: none;
+  color: rgba(57, 62, 65, 0.5);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.6rem;
+  line-height: 2.7rem;
+  font-weight: 500;
+  outline: none;
+}
+
+.feed_input::placeholder{
+  color: rgba(57, 62, 65, 0.5);
+  border: none;
+  color: rgba(57, 62, 65, 0.5);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.6rem;
+  line-height: 2.7rem;
+  font-weight: 500;
+}
+
+.feed_post_attach{
+  display: flex;
+  padding: 1rem 0rem 1rem 0rem;
+  background: #FBFAF9;
+  border-top: 1px solid #E0DFDB;
+  height: 100%;
+  border-radius: 0rem 0rem 1rem 1rem;
+}
+
+.feed_post_attach div{
+  margin-left: 1.5rem;
+}
+
+
+.live_feed_nav{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 2.5rem;
+  position: sticky;
+  top: 0;
+}
+
+.live_feed_options ul{
+  display: flex;
+}
+
+.live_feed_options ul li{
+  padding: .5rem 0rem;
+}
+
+.live_feed_options ul li:nth-of-type(1){
+  border-bottom: 2px solid orange;
+  font-weight: 600;
+}
+
+.live_feed_options ul li:nth-of-type(2){
+  margin-left: 2.9rem;
+}
+
+.live_feed_nav_link_1{
+  font-family: 'Segoe UI';
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 2.7rem;
+  color: #393E41;
+}
+
+.live_feed_nav_link_2{
+  font-family: 'Segoe UI';
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 2.7rem;
+  color: #393E41;
+}
+
+.live_feed_search{
+  display: flex;
+  background: #FFFFFF;
+  border: 1px solid #E0DFDB;
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.live_feed_search input{
+  border: none;
+  outline: none;
+  margin-left: .8rem;
+  font-family: 'Segoe UI';
+  font-weight: 350;
+  font-size: 1.3rem;
+  line-height: 2rem;
+}
+
+.live_feed_search input::placeholder{
+  color: #AAAAAA;
+}
+
+
+
+.live_feed_post_div{
+  padding: 1.6rem;
+  background: #FFFFFF;
+  border: 1px solid #E0DFDB;
+  border-radius: 10px;
+  margin-top: 2rem;
+  height: 60rem;
+  overflow-y: scroll;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.live_feed_post_div::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
+.live_feed_post{
+  margin-bottom: 3rem;
+}
+
+.live_feed_post_title{
+  display: flex;
+}
+
+.live_feed_post_title img{
+  height: 3.6rem;
+  width: 3.6rem;
+  border-radius: 1.8rem;
+}
+
+.live_feed_post_title div{
+  margin-left: 1.5rem;
+  font-family: 'Segoe UI';
+  font-weight: 600;
+  font-size: 1.3rem;
+  line-height: 2.1rem;
+  letter-spacing: -0.24px;
+  color: #393E41;
+}
+
+.live_feed_post_media{
+  margin-top: 1.8rem;
+}
+
+.live_feed_post_media img{
+  width: 100%;
+  height: 26rem;
+  border-radius: 6px;
+}
+
+
+.live_feed_post_likes_div{
+  margin-top: 1.5rem;
+}
+
+.live_feed_post_likes_div .text{
+  font-family: 'Segoe UI';
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  color: #AAAAAA;
+}
+
+.live_feed_post_likes_div .btn_div{
+  display: flex;
+  margin-top: .5rem;
+}
+
+.live_feed_post_likes_div .btn_div div{
+  display: flex;
+  align-items: center;
+  font-family: 'Segoe UI';
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+  letter-spacing: -0.24px;
+  color: #AAAAAA;
+}
+
+.live_feed_post_likes_div .btn_div div span{
+  margin-left: .7rem;
+}
+
+
+
+.live_feed_post_likes_div .btn_div div:nth-of-type(2){
+  margin-left: 1.7rem;
+}
+
+
+/* PROFILE */
+
+.profile{
+  grid-area: profile;
+  background: #FFFFFF;
+  border: 1px solid #E0DFDB;
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+.profile_heading{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.9rem;
+  font-weight: 600;
+  counter-reset: #393E41;
+}
+
+.progress_div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2.6rem;
+}
+
+.progress{
+  height: 7rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress_percentage{
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  font-weight: 600;
+  font-size: 3.4rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #393E41;
+
+}
+
+.progress_details{
+  width: 100%;
+  margin-top: 1rem;
+}
+
+
+
+
+
+
+/* FOLLOWING */
+
+
+.following{
+  grid-area: following;
+  padding: 2rem;
+  background: #FFFFFF;
+  border: 1px solid #E0DFDB;
+  border-radius: 10px;
+}
+
+.following_heading{
+  font-family: 'Segoe UI',;
+  font-size: 1.6rem;
+  color: #393E41;
+  font-weight: 400;
+}
+
+.following_heading span{
+  color: #AAAAAA;
+}
+
+.following_img_div{
+  margin-top: 3rem;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.following_img{
+  height: 4.2rem;
+  width: 4.2rem;
+  border-radius: 4.2rem;
+}
+
+
+
+/* LATEST UPDATES */
+
+
+
+.updates{
+  grid-area: updates;
+  background: #FFFFFF;
+  border: 1px solid #E0DFDB;
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+.updates_heading{
+  font-family: 'Segoe UI';
+  font-weight: 600;
+  font-size: 2rem;
+  color: #393E41;
+}
+
