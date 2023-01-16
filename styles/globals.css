@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@600;700&display=swap');
 
 
-*{
+*,*::after,*::before{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -19,7 +19,8 @@
     --primary-color: #7F56D9;
     --primary-color-light: #F6F5FF;
     --toggle-color: #DDD;
-    --text-color: #707070;
+    --text-color-heading: #393E41;
+    --segoe-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --sidebar-text-color: #808191;
 
     /* ====== Transition ====== */
@@ -58,8 +59,8 @@ main{
     padding: 3rem;
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1200px) {
     html {
-        font-size: 43.75%;
+        font-size: 50%;
     }
 }

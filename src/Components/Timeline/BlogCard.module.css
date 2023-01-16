@@ -16,14 +16,14 @@
 
 .blog_title{
   color: #393E41;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--segoe-font-family);
   font-size: 1.4rem;
   font-weight: 600;
 }
 
 .blog_date{
   color: #AAAAAA;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--segoe-font-family);
   font-weight: 400;
   font-size: 1.3rem;
 }

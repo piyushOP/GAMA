@@ -4,8 +4,19 @@ import CourseProgressCard from '../../src/Components/Dashboard/CourseProgressCar
 import CourseCard from '../../src/Components/Dashboard/CourseCard';
 import Carousel from '../../src/Components/Dashboard/Carousel';
 import LeaderBoardNameCard from '../../src/Components/Dashboard/LeaderBoardNameCard';
+import React from 'react';
 
 export default function Dashboard() {
+  const [leaderboardUser, setLeaderBoardUser] = React.useState([]);
+  React.useEffect(() =>{
+    fetchData()
+    async function fetchData(){
+      let leaderboard = await fetch('http://localhost:3000/api/dashboard/leaderboard');
+      leaderboard = await leaderboard.json();
+      setLeaderBoardUser(leaderboard);
+    }
+  },[]);
+  
   return (
     <>
       <div className={styles.welcome_div}>
@@ -85,15 +96,11 @@ export default function Dashboard() {
           </div>
           
           <div style={{ padding: '0rem 1rem' }}>
-            <LeaderBoardNameCard no={1} img='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzHQv_th9wq3ivQ1CVk7UZRxhbPq64oQrg5Q&usqp=CAU' name={'Piyush Kumar'}/>
-            <LeaderBoardNameCard no={2} img='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzHQv_th9wq3ivQ1CVk7UZRxhbPq64oQrg5Q&usqp=CAU' name={'Piyush Kumar'}/>
-            <LeaderBoardNameCard no={3} img='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzHQv_th9wq3ivQ1CVk7UZRxhbPq64oQrg5Q&usqp=CAU' name={'Piyush Kumar'}/>
-            <LeaderBoardNameCard no={4} img='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzHQv_th9wq3ivQ1CVk7UZRxhbPq64oQrg5Q&usqp=CAU' name={'Piyush Kumar'}/>
-            <LeaderBoardNameCard no={5} img='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzHQv_th9wq3ivQ1CVk7UZRxhbPq64oQrg5Q&usqp=CAU' name={'Piyush Kumar'}/>
-            <LeaderBoardNameCard no={7} img='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzHQv_th9wq3ivQ1CVk7UZRxhbPq64oQrg5Q&usqp=CAU' name={'Piyush Kumar'}/>
-            <LeaderBoardNameCard no={8} img='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzHQv_th9wq3ivQ1CVk7UZRxhbPq64oQrg5Q&usqp=CAU' name={'Piyush Kumar'}/>
-            <LeaderBoardNameCard no={9} img='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzHQv_th9wq3ivQ1CVk7UZRxhbPq64oQrg5Q&usqp=CAU' name={'Piyush Kumar'}/>
-            <LeaderBoardNameCard no={10} img='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzHQv_th9wq3ivQ1CVk7UZRxhbPq64oQrg5Q&usqp=CAU' name={'Piyush Kumar'}/>
+            {
+              leaderboardUser.map((data, idx) => (
+                <LeaderBoardNameCard no={idx+1} img={data.image} name={data.name} />
+              ))
+            }
           </div>
         </div>
       </div>

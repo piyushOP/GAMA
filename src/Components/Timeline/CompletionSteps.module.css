@@ -36,7 +36,7 @@
 
 .text{
   color: #AAAAAA;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--segoe-font-family);
   font-style: normal;
   font-weight: 600;
   font-size: 1.3rem;
@@ -45,7 +45,7 @@
 }
 .text_complete{
   color: #393E41;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--segoe-font-family);
   font-style: normal;
   font-weight: 600;
   font-size: 1.3rem;
@@ -54,14 +54,14 @@
 }
 
 .out_of{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--segoe-font-family);
   font-style: normal;
   font-weight: 600;
   font-size: 1.4rem;
   color: #AAAAAA;
 }
 .out_of_complete{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--segoe-font-family);
   font-style: normal;
   font-weight: 600;
   font-size: 1.4rem;

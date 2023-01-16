@@ -31,7 +31,7 @@
   font-size: 3.4rem;
   font-weight: 700;
   line-height: 1;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--segoe-font-family);
 }
 
 .user_image .welcome span{
@@ -81,7 +81,7 @@
   border-radius: .6rem;
   margin-top: 2rem;
   cursor: pointer;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--segoe-font-family);
   font-size: 1.3rem;
   color: #939597;;
 }
@@ -144,7 +144,7 @@
 
 .carousel{
   width: 100%;
-  margin-top: 3.3rem;
+  margin-top: 2.3rem;
 }
 
 .leaderboard_div{
