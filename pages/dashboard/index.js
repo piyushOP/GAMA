@@ -8,12 +8,16 @@ import React from 'react';
 
 export default function Dashboard() {
   const [leaderboardUser, setLeaderBoardUser] = React.useState([]);
+  const [pendingCourses, setPedingCourses] = React.useState([]);
   React.useEffect(() =>{
     fetchData()
     async function fetchData(){
       let leaderboard = await fetch('http://localhost:3000/api/dashboard/leaderboard');
+      let pending = await fetch('http://localhost:3000/api/dashboard/pendingcourses');
       leaderboard = await leaderboard.json();
+      pending = await pending.json();
       setLeaderBoardUser(leaderboard);
+      setPedingCourses(pending);
     }
   },[]);
   
@@ -81,7 +85,7 @@ export default function Dashboard() {
             </div>
           </div>
           <div className={styles.carousel}>
-            <Carousel />
+            <Carousel courses={pendingCourses}/>
           </div>
         </div>
         

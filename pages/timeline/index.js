@@ -1,12 +1,34 @@
 import styles from './index.module.css'
 import BlogCard from '../../src/Components/Timeline/BlogCard'
+import PostCatd from '../../src/Components/Timeline/PostCard';
 import Link from 'next/link'
 import CircularProgressbar from '../../src/Components/Dashboard/CircularProgressBar'
 import CompletionSteps from '../../src/Components/Timeline/CompletionSteps'
 import LatestUpdateCard from '../../src/Components/Timeline/LatestUpdateCard'
+import React from 'react'
 
 
 export default function Timeline() {
+
+  const [blogs, setBlogs] = React.useState([]);
+  const [latestUpdates, setLatestUpdates] = React.useState([]);
+  const [posts, setPosts] = React.useState([]);  
+
+  React.useEffect(() =>{
+    fetchData()
+    async function fetchData(){
+      let blogData = await fetch('http://localhost:3000/api/timeline/blog');
+      let updatesData = await fetch('http://localhost:3000/api/timeline/updates');
+      let postsData = await fetch('http://localhost:3000/api/timeline/posts');
+      blogData = await blogData.json();
+      updatesData = await updatesData.json();
+      postsData = await postsData.json();
+      setBlogs(blogData);
+      setLatestUpdates(updatesData);
+      setPosts(postsData);
+    }
+  },[]);
+
   return (
     <>
       <div className={styles.timeline}>
@@ -15,11 +37,11 @@ export default function Timeline() {
             Blog
           </div>
           <div className={styles.blog_cards_div}>
-            <BlogCard image={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScpOVm0xBWbWub9-KJXgfKUm-vbUoTRdroDA&usqp=CAU'} title='Tackle Your closest Spring cleaning' date='May 14, 2023'/>         
-            <BlogCard image={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScpOVm0xBWbWub9-KJXgfKUm-vbUoTRdroDA&usqp=CAU'} title='The Truth About Business Blogging' date='May 14, 2023'/>         
-            <BlogCard image={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScpOVm0xBWbWub9-KJXgfKUm-vbUoTRdroDA&usqp=CAU'} title='10 Tips to stay healthy when…' date='May 14, 2023'/>         
-            <BlogCard image={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScpOVm0xBWbWub9-KJXgfKUm-vbUoTRdroDA&usqp=CAU'} title='Visiting Amsterdam on a Budget' date='May 14, 2023'/>         
-            <BlogCard image={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScpOVm0xBWbWub9-KJXgfKUm-vbUoTRdroDA&usqp=CAU'} title='OMA completes renovation of Sothe..' date='May 14, 2023'/>
+            {
+              blogs.map((data, idx) => (
+                <BlogCard key={idx} image={data.image} title={data.title} date={data.date}/>
+              ))
+            }
           </div>
           <div className={styles.blog_btn}>
             <Link className={styles.blog_btn_text} href='#'>
@@ -77,84 +99,11 @@ export default function Timeline() {
               </div>
             </div>
             <div className={styles.live_feed_post_div}>
-              <div className={styles.live_feed_post}>
-                <div className={styles.live_feed_post_title}>
-                  <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTncxHwv7BXAjmaSBtTzrsp1mVdUkJGEKrUuA&usqp=CAU'/>
-                  <div>
-                    John posted an update<br/>a day ago
-                  </div>
-                </div>
-                <div className={styles.live_feed_post_media}>
-                  <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxXnC3fwMwkbIt3ejGRIw3NmbDyUtgS5g2jA&usqp=CAU'/>
-                </div>
-                <div className={styles.live_feed_post_likes_div}>
-                  <div className={styles.text}>
-                    You and Jennifer like this - 2 Comments
-                  </div>
-                  <div className={styles.btn_div}>
-                    <div className={styles.like_btn}>
-                      <img src='/images/timeline/likeBtn.svg'/>
-                      <span>Unlike</span>
-                    </div>
-                    <div className={styles.comment_btn}>
-                      <img src='/images/timeline/commentBtn.svg'/>
-                      <span>Comment</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className={styles.live_feed_post}>
-                <div className={styles.live_feed_post_title}>
-                  <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTncxHwv7BXAjmaSBtTzrsp1mVdUkJGEKrUuA&usqp=CAU'/>
-                  <div>
-                    John posted an update<br/>a day ago
-                  </div>
-                </div>
-                <div className={styles.live_feed_post_media}>
-                  <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxXnC3fwMwkbIt3ejGRIw3NmbDyUtgS5g2jA&usqp=CAU'/>
-                </div>
-                <div className={styles.live_feed_post_likes_div}>
-                  <div className={styles.text}>
-                    You and Jennifer like this - 2 Comments
-                  </div>
-                  <div className={styles.btn_div}>
-                    <div className={styles.like_btn}>
-                      <img src='/images/timeline/likeBtn.svg'/>
-                      <span>Unlike</span>
-                    </div>
-                    <div className={styles.comment_btn}>
-                      <img src='/images/timeline/commentBtn.svg'/>
-                      <span>Comment</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className={styles.live_feed_post}>
-                <div className={styles.live_feed_post_title}>
-                  <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTncxHwv7BXAjmaSBtTzrsp1mVdUkJGEKrUuA&usqp=CAU'/>
-                  <div>
-                    John posted an update<br/>a day ago
-                  </div>
-                </div>
-                <div className={styles.live_feed_post_media}>
-                  <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxXnC3fwMwkbIt3ejGRIw3NmbDyUtgS5g2jA&usqp=CAU'/>
-                </div>
-                <div className={styles.live_feed_post_likes_div}>
-                  <div className={styles.text}>
-                    You and Jennifer like this - 2 Comments
-                  </div>
-                  <div className={styles.btn_div}>
-                    <div className={styles.like_btn}>
-                      <img src='/images/timeline/likeBtn.svg'/>
-                      <span>Unlike</span>
-                    </div>
-                    <div className={styles.comment_btn}>
-                      <img src='/images/timeline/commentBtn.svg'/>
-                      <span>Comment</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              {
+                posts.map((post,idx) => (
+                  <PostCatd key={idx} post={post} />
+                ))
+              }
             </div>
           </div>
         </div>
@@ -202,12 +151,12 @@ export default function Timeline() {
             Latest updates
           </div>
           <div className={styles.updates_div}>
-            <LatestUpdateCard image='https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745' text='John posted an update' subText='a day ago'/>
-            <LatestUpdateCard image='https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745' text='Adele posted an update' subText='a day ago'/>
-            <LatestUpdateCard image='https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745' text='John posted an update' subText='3 day ago'/>
-            <LatestUpdateCard image='https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745' text='John posted an update in the group' subText='3 days ago'/>
-            <LatestUpdateCard image='https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745' text='John posted an update' subText='3 days ago'/>
-          </div>
+            {
+              latestUpdates.map((data, idx) => (
+                <LatestUpdateCard key={idx} image={data.image} text={data.text} subText={data.subText} />
+              ))
+            }
+            </div>
         </div>
       </div>
     </>
